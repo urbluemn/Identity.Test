@@ -3,8 +3,14 @@ using IdentityServer4.Models;
 
 namespace Identity.Test.Server
 {
-    public class Configuration
+    public static class Configuration
     {
+        public static IEnumerable<ApiScope> GetApiScopes() =>
+            new List<ApiScope>
+            {
+                new ApiScope("RecipesAPI", "RecipesAPI")
+            };
+
         public static IEnumerable<Client> GetClients() =>
             new List<Client>
             {
@@ -15,7 +21,8 @@ namespace Identity.Test.Server
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes =
                     {
-                        "RecipesAPI"
+                        "RecipesAPI",
+                        "openid"
                     }
                 }
             };

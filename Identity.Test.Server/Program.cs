@@ -9,6 +9,7 @@ builder.Services.AddIdentityServer()
     .AddInMemoryClients(Configuration.GetClients())
     .AddInMemoryApiResources(Configuration.GetApiResources())
     .AddInMemoryIdentityResources(Configuration.GetIdentityResources())
+    .AddInMemoryApiScopes(Configuration.GetApiScopes())
     .AddDeveloperSigningCredential();
 
 
